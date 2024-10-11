@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/sunilkrishna49/estore-admin-dashboard'
+               git branch: 'main', url: 'https://github.com/sunilkrishna49/estore-admin-dashboard.git'
             }
         }
         stage('Install Dependencies') {
