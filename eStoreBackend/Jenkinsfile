@@ -10,17 +10,23 @@ pipeline {
         }
         stage('Build') {
             steps {
+                dir('eStoreBackend'){
                 bat 'mvn clean install'
+                }
             }
         }
         stage('Dockerize') {
             steps {
+                dir('eStoreBackend'){
                 bat 'docker build -t estore-backend .'
+                }
             }
         }
         stage('Deploy') {
             steps {
+                
                 bat 'docker run -d -p 9094:9094 estore-backend'
+                
             }
         }
     }
