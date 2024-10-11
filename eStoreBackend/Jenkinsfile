@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/sunikrishna49/estore-admin-dashboard'
+                git 'https://github.com/sunilkrishna49/estore-admin-dashboard'
             }
         }
         stage('Build') {
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 9093:9093 estore-backend'
+                sh 'docker run -d -p 9094:9094 estore-backend'
             }
         }
     }
