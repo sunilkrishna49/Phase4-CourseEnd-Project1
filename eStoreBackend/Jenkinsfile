@@ -10,17 +10,17 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './mvnw clean package'
+                bat 'mvn clean install'
             }
         }
         stage('Dockerize') {
             steps {
-                sh 'docker build -t estore-backend .'
+                bat 'docker build -t estore-backend .'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 9094:9094 estore-backend'
+                bat 'docker run -d -p 9094:9094 estore-backend'
             }
         }
     }
