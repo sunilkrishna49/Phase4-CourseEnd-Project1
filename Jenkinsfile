@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bat 'docker run -d -p 80:80 angular-admin-app'  // Use 'bat' for Windows
+                bat 'docker run -d -p 90:90 angular-admin-app'  // Use 'bat' for Windows
             }
         }
     }
