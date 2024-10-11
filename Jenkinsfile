@@ -3,27 +3,27 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-               git branch: 'main', url: 'https://github.com/sunilkrishna49/estore-admin-dashboard.git'
+                git branch: 'main', url: 'https://github.com/sunilkrishna49/estore-admin-dashboard.git'
             }
         }
         stage('Install Dependencies') {
             steps {
-                sh 'npm install --legacy-peer-deps'
+                bat 'npm install --legacy-peer-deps'  // Use 'bat' for Windows
             }
         }
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'  // Use 'bat' for Windows
             }
         }
         stage('Dockerize') {
             steps {
-                sh 'docker build -t angular-admin-app .'
+                bat 'docker build -t angular-admin-app .'  // Use 'bat' for Windows
             }
         }
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 80:80 angular-admin-app'
+                bat 'docker run -d -p 80:80 angular-admin-app'  // Use 'bat' for Windows
             }
         }
     }
