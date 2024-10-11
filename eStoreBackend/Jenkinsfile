@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/Simplilearn-Edu/estore-admin-dashboard'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+        stage('Dockerize') {
+            steps {
+                sh 'docker build -t estore-backend .'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'docker run -d -p 9093:9093 estore-backend'
+            }
+        }
+    }
+}
