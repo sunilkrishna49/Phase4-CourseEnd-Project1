@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Simplilearn-Edu/estore-admin-dashboard'
+                git 'https://github.com/sunikrishna49/estore-admin-dashboard'
             }
         }
         stage('Build') {
